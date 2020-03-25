@@ -1,0 +1,22 @@
+﻿﻿<h1>Hi {{currentUser.firstName}}!</h1>
+ 
+<h3>All registered users:</h3>
+ 
+<ul>    
+    <li *ngFor="let user of users">     
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" [name]="user.username" [id]="user.paramId" [value]="rating" (change)="onSelectionChange(user.id)" [checked]="last">
+         </div> 
+        {{user.username}} {{user.firstName}} {{user.lastName}}
+        - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a>
+    </li>
+</ul>
+
+  <div id="divMessages" class="messages">   
+          <div  *ngFor="let chat of chatHistory">{{chat.message}}</div>    
+  </div>
+<div class="input-zone">
+    <label id="lblMessage" for="tbMessage">Message:</label>
+    <input id="tbMessage" class="input-zone-input" type="text" />
+ </div>
+  
